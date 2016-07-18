@@ -27,7 +27,7 @@ public class Level {
     private Vec2i lastTp = null;
     private boolean[][] walls;
 
-    private List<Vec2i> path = Lists.newArrayList();
+    private List<Vec2i> path = null;
 
 
     public Level() {
@@ -50,6 +50,8 @@ public class Level {
         if (this.path != null && this.path.size() > 0) {
             Util.drawPath(r, this.path);
         }
+
+        r.draw(10*CELL_SIZE, 10*CELL_SIZE, Util.TARGET);
     }
 
     public void clickedAt(Point pos) {
@@ -136,8 +138,15 @@ public class Level {
     }
 
     public void update(InputHandler ih) {
-        if (ih.isKeyDown(KeyEvent.VK_U)) {
+        if (ih.wasKeyTyped(KeyEvent.VK_C)) {
+            this.path = null;
+        }
+        if (ih.wasKeyTyped(KeyEvent.VK_U)) {
             this.path = goTo(new Vec2i(0, 0), new Vec2i(9, 9));
         }
+    }
+
+    public Vec2i getTarget() {
+        return new Vec2i(9, 9); // TODO For now
     }
 }

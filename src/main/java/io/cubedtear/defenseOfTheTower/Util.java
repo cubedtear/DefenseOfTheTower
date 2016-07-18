@@ -18,7 +18,7 @@ public class Util {
 
     private static final Sprite HOR_LINE = new Sprite(Level.CELL_SIZE, Level.CELL_SIZE, 0x00000000);
     private static final Sprite VER_LINE = new Sprite(Level.CELL_SIZE, Level.CELL_SIZE, 0x00000000);
-    private static final Sprite TARGET = SpriteUtil.circle(Level.CELL_SIZE, LINE_COLOR, Level.CELL_SIZE);
+    public static final Sprite TARGET = SpriteUtil.circle(Level.CELL_SIZE, LINE_COLOR, Level.CELL_SIZE);
 
     static {
         for (int w = 0; w < LINE_WIDTH; w++) {
